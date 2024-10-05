@@ -1,0 +1,588 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dazhir Store Clothing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #ff69b4;
+            color: white;
+            padding: 2px;
+            text-align: center;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+        }
+
+        header h1 {
+            display: inline-block;
+            margin-top: 14px;
+        }
+
+        .header-img {
+            position: absolute;
+            top: 23px;
+            right: 20px;
+            width: 80px;
+            height: auto;
+            transition: width 0.3s ease;
+        }
+
+        nav {
+            text-align: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: 0.15s;
+            display: block;
+            padding: 10px;
+        }
+
+        nav a:hover {
+            color: #ff69b4;
+            transform: translateY(2px);
+        }
+
+        .section {
+            padding: 20px;
+        }
+
+        .section h3 {
+            margin-bottom: 10px;
+            color: #ff69b4;
+        }
+
+        .items {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .item {
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            flex-basis: 25%;
+            box-sizing: border-box;
+            margin: 10px;
+            transition: ease 0.25s;
+        }
+
+        .item img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .item h3 {
+            margin: 15px 0;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: -115px;
+        }
+
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #ff85c0;
+        }
+
+        .logo-footer img {
+            width: 100px;
+            height: auto;
+            margin-left: -115px;
+        }
+
+        .footer-follow {
+            margin-right: 7px;
+        }
+
+        /* Hamburger Menu */
+        .menu-icon {
+            cursor: pointer;
+            padding: 10px;
+            z-index: 12000;
+            position: fixed;
+            top: 11px;
+            left: 20px;
+        }
+
+        .menu-icon div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+
+        .nav-links {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: #FF99CC;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: left 0.4s ease;
+            z-index: 1500;
+        }
+
+        .nav-links a {
+            margin-top: 20px;
+            transition: 0.4s ease;
+            width: 200px;
+            font-size: 19px;
+        }
+
+        .nav-links a:hover {
+            color: #ff85c0;
+            background-color: white;
+            transform: translateX(7px);
+        }
+
+        .nav-links.active {
+            left: 0;
+        }
+
+        .menu-icon.active div:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .menu-icon.active div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-icon.active div:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .item:hover {
+            cursor: pointer;
+            background-color: #ff85c0;
+            transform: translateY(-10px);
+            box-shadow: 4px 6px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .all-filter-buttons {
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .Clothes-h2 {
+            flex: 10%;
+        font-size: 23px;
+        }
+
+        .dropdown-button {
+            flex: 45%;
+        }
+
+        .sort-buttons {
+            flex: 45%;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-button:hover {
+            background-color: #45a049;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 145px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 5px;
+            overflow: hidden;
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.2s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown-content.show {
+            display: block;
+            transform: scaleY(1);
+        }
+        
+        .sort-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .sort-button {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        
+        .sort-button:hover {
+            background-color: #0056b3;
+        }
+        
+        .sort-button:active {
+            transform: scale(0.98);
+        }
+        
+
+        @media (max-width: 1200px) {
+            .social-icons {
+                margin-right: -60px;
+            }
+
+            .logo-footer img {
+                width: 90px;
+                height: auto;
+                margin-left: 2px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .social-icons {
+                margin-right: -20px;
+            }
+
+            .logo-footer img {
+                width: 90px;
+                height: auto;
+                margin-left: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .dropdown-button{
+                padding: 10px 7px;
+                font-size: 14px;
+                
+            }
+
+            .sort-button {
+                position: relative;
+                right: -15px;
+                padding: 10px 4.3px;
+                text-align: center;
+                font-size: 14px;
+                margin: 4px 0px;
+            }
+
+            .Clothes-h2{
+                position: relative;
+                right: 12px;
+                top: -2px;
+                font-size: 18.72px;
+            }
+
+            .header-img {
+                width: 60px;
+                right: 10px;
+                top: 27px;
+            }
+
+            .social-icons {
+                margin-right: 15px;
+            }
+
+            .social-icons a {
+                margin: 0 3.5px;
+                font-size: 17px;
+            }
+
+            .copy-rights {
+                font-size: 14px;
+                width: 140px;
+                margin-left: 25px;
+            }
+
+            .footer-follow {
+                font-size: 14px;
+                width: 50px;
+                margin: 2px;
+            }
+
+            .logo-footer img {
+                width: 70px;
+                height: auto;
+                margin-left: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2>Clothing Section</h2>
+        <img class="header-img" src="logo.png" alt="Dazhir Store Logo">
+    </header>
+    <nav class="the-nav">
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <div class="moving-a">
+                <a href="index.html">Home</a>
+                <a href="clothing.html">Clothings</a>
+                <a href="accessories.html">Accessories</a>
+                <a href="delevery.html">Delivery cost</a>
+                <a href="#">About Us</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+    <div class="section">
+        <div class="all-filter-buttons">
+            <h3 class="Clothes-h2">Clothes</h3>
+            <div class="dropdown">
+                <button class="dropdown-button" onclick="toggleDropdown()">Clothing Types</button>
+                <div class="dropdown-content" id="dropdown-content">
+                    <a href="#" data-item-type="all">All</a>
+                    <a href="#" data-item-type="pants">Pants</a>
+                    <a href="#" data-item-type="jeans">Jeans</a>
+                    <a href="#" data-item-type="shirts">Shirts</a>
+                    <a href="#" data-item-type="skirt">Skirt</a>
+                    <a href="#" data-item-type="dress">Dress</a>
+                    <a href="#" data-item-type="coat">Coat</a>
+                </div>
+            </div>
+            <div class="sort-buttons">
+                <button class="sort-button" onclick="sortItems('low-to-high')">Low to High</button>
+                <button class="sort-button" onclick="sortItems('high-to-low')">High to Low</button>
+            </div>
+        </div>
+
+        <div class="items">
+            <!-- Items will be generated here by JavaScript -->
+        </div>
+    </div>
+    <footer>
+        <div class="logo-footer">
+            <img src="logo.png" alt="Dazhir Store Logo">
+        </div>
+        <p class="copy-rights">&copy; 2024 Dazhir Store All rights reserved</p>
+        <div class="social-icons">
+            <p class="footer-follow"><b>Follow us on</b></p>
+            <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let itemsData = [];
+            let currentType = 'all';  // Keep track of the currently selected type
+        
+            // Fetch items and store them in itemsData
+            fetch('items.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Network response was not ok: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    itemsData = data;
+                    displayItems(itemsData, 'Clothes'); // Display all items initially
+                })
+                .catch(error => console.error('Error loading JSON:', error));
+        
+            // Toggle dropdown functionality
+            function toggleDropdown() {
+                document.getElementById("dropdown-content").classList.toggle("show");
+            }
+        
+            // Close dropdown if clicked outside
+            window.onclick = function (event) {
+                if (!event.target.matches('.dropdown-button')) {
+                    let dropdowns = document.getElementsByClassName("dropdown-content");
+                    for (let i = 0; i < dropdowns.length; i++) {
+                        let openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains('show')) {
+                            openDropdown.classList.remove('show');
+                        }
+                    }
+                }
+            }
+        
+            // Sort and display items based on the selected option
+            function sortItems(order) {
+                const filteredItems = filterItemsByType(currentType); // Filter items first
+                const sortedItems = filteredItems.sort((a, b) => {
+                    const priceA = parseFloat(a.price.replace(' IQD', ''));
+                    const priceB = parseFloat(b.price.replace(' IQD', ''));
+                    if (order === 'low-to-high') {
+                        return priceA - priceB;
+                    } else if (order === 'high-to-low') {
+                        return priceB - priceA;
+                    }
+                    return 0;
+                });
+                displayItems(sortedItems, document.querySelector('.section h3').textContent);
+            }
+        
+            // Filter and display items based on selected type
+            function displayItems(items, heading) {
+                const itemsContainer = document.querySelector('.items');
+                itemsContainer.innerHTML = ''; // Clear previous items
+        
+                items.forEach(item => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.classList.add('item');
+        
+                    const img = document.createElement('img');
+                    img.src = item.image;
+                    img.alt = item.alt;
+        
+                    const size = document.createElement('h3');
+                    size.textContent = `Size: ${item.size}`;
+                    size.style.color = "black";
+        
+                    const price = document.createElement('p');
+                    price.textContent = `Price: ${item.price}`;
+        
+                    itemDiv.appendChild(img);
+                    itemDiv.appendChild(size);
+                    itemDiv.appendChild(price);
+        
+                    itemsContainer.appendChild(itemDiv);
+                });
+        
+                // Update the heading
+                document.querySelector('.section h3').textContent = heading;
+            }
+        
+            // Filter items based on type
+            function filterItemsByType(type) {
+                if (type === 'all') {
+                    return itemsData;
+                } else {
+                    return itemsData.filter(item => item.itemType === type);
+                }
+            }
+        
+            // Event delegation to handle dropdown clicks
+            document.getElementById('dropdown-content').addEventListener('click', function (event) {
+                const target = event.target;
+                if (target.matches('a[data-item-type]')) {
+                    const type = target.getAttribute('data-item-type');
+                    currentType = type; // Update the current type
+        
+                    const filteredItems = filterItemsByType(type);
+                    displayItems(filteredItems, type === 'all' ? 'Clothes' : type.charAt(0).toUpperCase() + type.slice(1));
+        
+                    // Hide dropdown after selection
+                    document.getElementById('dropdown-content').classList.remove('show');
+                }
+            });
+        
+            // Toggle menu functionality
+            function toggleMenu() {
+                const navLinks = document.getElementById('navLinks');
+                navLinks.classList.toggle('active');
+                const menuIcon = document.querySelector('.menu-icon');
+                menuIcon.classList.toggle('active');
+            }
+        
+            document.querySelector('.menu-icon').addEventListener('click', toggleMenu);
+            document.querySelector('.dropdown-button').addEventListener('click', toggleDropdown); // Ensure dropdown button is wired up
+        
+            // Attach sort button handlers
+            document.querySelectorAll('.sort-button').forEach(button => {
+                button.addEventListener('click', function () {
+                    const order = this.textContent === 'Low to High' ? 'low-to-high' : 'high-to-low';
+                    sortItems(order);
+                });
+            });
+        });
+        
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dazhir Store</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #ff69b4;
+            color: white;
+            padding: 2px;
+            text-align: center;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+        }
+
+        header h1 {
+            display: inline-block;
+            margin-top: 14px;
+        }
+
+        nav {
+            text-align: center;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        nav.the-nav {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: 0.15s;
+            display: block;
+            padding: 10px;
+        }
+
+        .banner {
+            width: 100%;
+            background-image: url('banner-image.jpg');
+            background-size: cover;
+            color: #ff69b4;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .banner h1 {
+            font-size: 50px;
+            margin-top: 20px;
+        }
+
+        .categories,
+        .cards {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        .categories {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-evenly;
+        }
+
+        .category {
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            text-align: center;
+            width: 25%;
+            max-height: 320px;
+            margin-bottom: 20px;
+            min-height: 150px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: ease 0.4s;
+        }
+
+        .category p {
+            padding: 7px;
+        }
+
+        .card {
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            padding: 5px;
+            text-align: center;
+            width: 25%;
+            min-width: 150px;
+            margin-bottom: 30px;
+            min-height: 255px;
+            box-shadow: 2px 4px 2px rgba(0, 0, 0, 0.2);
+            transition: ease 0.25s;
+        }
+
+        .card:hover {
+            cursor: pointer;
+            background-color: #ff85c0;
+            transform: translateY(-10px);
+            box-shadow: 4px 6px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .category:hover {
+            cursor: pointer;
+            background-color: #ff85c0;
+            transform: translateY(-5px);
+        }
+
+        .category {
+            min-width: 140px;
+            padding: 0px;
+        }
+
+        .category img,
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .category img {
+            width: 95%;
+            padding: 5px 0px;
+            border-radius: 10px;
+        }
+
+        .category h2,
+        .card h3 {
+            margin: 15px 0;
+        }
+
+        .card h3 {
+            font-weight: normal;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            display: flex;
+            justify-content:space-around;
+            align-items: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: -115px;
+        }
+
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #ff85c0;
+        }
+
+        .logo-footer img {
+            width: 100px;
+            height: auto;
+            margin-left: -115px;
+        }
+
+        .Our-products {
+            text-align: center;
+            margin: 0;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .our-productsline {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .line {
+            flex: 1;
+            height: 1px;
+            background-color: #ff85c0;
+            border: none;
+            margin: 0 15px;
+        }
+
+        /* Hamburger Menu */
+        .menu-icon {
+            cursor: pointer;
+            padding: 10px;
+            z-index: 12000;
+            position: fixed;
+            top: 11px;
+            left: 20px;
+        }
+
+        .menu-icon div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+
+        /* Slide-in Navigation */
+        .nav-links {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: #FF99CC;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: left 0.4s ease;
+            z-index: 1500;
+            /* Increased z-index */
+        }
+
+        .nav-links a {
+            margin-top: 20px;
+            transition: 0.4s ease;
+            width: 200px;
+            font-size: 19px;
+        }
+
+        .moving-a {
+            margin-top: -55px;
+        }
+
+        .nav-links a:hover {
+            color: #ff85c0;
+            background-color: white;
+            transform: translateX(7px);
+        }
+
+        .nav-links.active {
+            left: 0;
+        }
+
+        /* Toggle the menu icon */
+        .menu-icon.active div:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .menu-icon.active div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-icon.active div:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .header-img {
+            position: absolute;
+            top: 23px;
+            right: 20px;
+            width: 80px;
+            height: auto;
+            transition: width 0.3s ease;
+        }
+
+        .footer-follow {
+            margin-right: 7px;
+        }
+
+        .cards-h3 {
+            font-size: 24px;
+        }
+
+        .cards-h3-strong {
+            font-size: 22px;
+        }
+
+        .cards-p {
+            font-size: 20px;
+        }
+
+        .copy-rights{
+         margin-left: 95px;
+        }
+
+        @media (max-width: 1200px){
+            .social-icons{
+                margin-right:-60px;
+            }
+            .logo-footer img {
+                width: 90px;
+                height: auto;
+                margin-left: 2px;
+            }
+        }
+
+        @media (max-width: 1024px){
+            .social-icons{
+                margin-right:-20px;
+            }
+            .logo-footer img {
+                width: 90px;
+                height: auto;
+                margin-left: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-img {
+                width: 60px;
+                right: 10px;
+                top: 27px;
+            }
+
+            .social-icons{
+                margin-right: 15px;
+            }
+
+            .social-icons a {
+                margin: 0 3.5px;
+                font-size: 17px;
+            }
+
+            .copy-rights{
+                font-size: 14px;
+                width: 140px;
+                margin-left: 25px;
+            }
+            .footer-follow{
+                font-size: 14px;
+                width: 50px;
+                margin: 2px;
+            }
+
+            .logo-footer img {
+                width: 70px;
+                height: auto;
+               margin-left: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Dazhir gora</h1>
+        <img class="header-img" src="logo.png" alt="" width="100px">
+    </header>
+    <nav class="the-nav">
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <div class="moving-a">
+                <a href="index.html">Home</a>
+                <a href="clothing.html">Clothings</a>
+                <a href="accessories.html">Accessories</a>
+                <a href="delevery.html">Delivery cost</a>
+                <a href="#">About Us</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="banner">
+        <h1>Welcome to Dazhir Store!</h1>
+        <p>Discover the latest fashion and accessories</p>
+    </div>
+    <div class="categories">
+        <div class="category">
+            <img src="clothing.jpg" alt="Clothing">
+            <h2>Clothing</h2>
+            <p>Shop our latest clothing collection</p>
+        </div>
+        <div class="category">
+            <img src="accessories.jpg" alt="accessory">
+            <h2>Accessory</h2>
+            <p>Find the perfect accessories for yourself.</p>
+        </div>
+    </div>
+    <div class="our-productsline">
+        <hr data-aos="zoom-in" class="line">
+        <h1 data-aos="zoom-out" class="Our-products">Our products</h1>
+        <hr data-aos="zoom-in" class="line">
+    </div class="line">
+
+    <div class="cards">
+        <div data-aos="zoom-out-up" class="card">
+            <img src="2.jpg" alt="Product 1">
+            <h3 class="cards-h3">size : <strong class="cards-h3-strong">M</strong></h3>
+            <p class="cards-p">Price : <strong>5 IQD</strong></p>
+        </div>
+        <div data-aos="zoom-out-up" class="card">
+            <img src="1.jpg" alt="Product 2">
+            <h3 class="cards-h3">Size : <strong class="cards-h3-strong">L</strong></h3>
+            <p class="cards-p">Price : <strong>5 IQD</strong> </p>
+        </div>
+        <div data-aos="zoom-out-up" class="card">
+            <img src="3.jpg" alt="Product 2">
+            <h3 class="cards-h3">Size : <strong class="cards-h3-strong">M/S</strong></h3>
+            <p class="cards-p">Price : <strong>6 IQD</strong> </p>
+        </div>
+        <div data-aos="zoom-out-up" class="card">
+            <img src="4.jpg" alt="Product 2">
+            <h3 class="cards-h3">Size : <strong class="cards-h3-strong">L/XL</strong></h3>
+            <p class="cards-p">Price : <strong>8 IQD</strong> </p>
+        </div>
+        <div data-aos="zoom-out-up" class="card">
+            <img src="5.jpg" alt="Product 2">
+            <h3 class="cards-h3">Size : <strong class="cards-h3-strong">M/S</strong></h3>
+            <p class="cards-p">Price : <strong>5 IQD</strong> </p>
+        </div>
+        <div data-aos="zoom-out-up" class="card">
+            <img src="6.jpg" alt="Product 2">
+            <h3 class="cards-h3">Size : <strong class="cards-h3-strong">L/XL</strong></h3>
+            <p class="cards-p">Price : <strong>10 IQD</strong> </p>
+        </div>
+    </div>
+    <footer>
+        <div class="logo-footer">
+            <img src="logo.png" alt="Dazhir Store "><br>
+        </div>
+        <p class="copy-rights">&copy; 2024 Dazhir Store All rights reserved</p>
+        <div class="social-icons">
+            <p class="footer-follow"><b>Follow us on</b></p>
+            <a href="" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+
+            const menuIcon = document.querySelector('.menu-icon');
+            menuIcon.classList.toggle('active');
+        }
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
