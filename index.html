@@ -18,7 +18,7 @@
         }
 
         header {
-            background-color: #ff69b4;
+            background-color: #b29ce4;
             color: white;
             padding: 2px;
             text-align: center;
@@ -63,8 +63,8 @@
             width: 100%;
             background-image: url('banner-image.jpg');
             background-size: cover;
-            color: #ff69b4;
-            padding: 80px 0;
+            color: #b29ce4;
+            padding: 60px 0;
             text-align: center;
         }
 
@@ -83,12 +83,12 @@
 
         .categories {
             display: flex;
-            flex-wrap: nowrap;
+            flex-wrap: wrap;
             justify-content: space-evenly;
         }
 
         .category {
-            background-color: #e0e0e0;
+            background-color: #f2f2f2;
             border-radius: 5px;
             text-align: center;
             width: 25%;
@@ -104,7 +104,7 @@
         }
 
         .card {
-            background-color: #e0e0e0;
+            background-color: #f2f2f2;
             border-radius: 5px;
             padding: 5px;
             text-align: center;
@@ -118,14 +118,14 @@
 
         .card:hover {
             cursor: pointer;
-            background-color: #ff85c0;
+            background-color: #9c84d2;
             transform: translateY(-10px);
             box-shadow: 4px 6px 2px rgba(0, 0, 0, 0.2);
         }
 
         .category:hover {
             cursor: pointer;
-            background-color: #ff85c0;
+            background-color: #9c84d2;
             transform: translateY(-5px);
         }
 
@@ -186,7 +186,7 @@
         }
 
         .social-icons a:hover {
-            color: #ff85c0;
+            color: #9c84d2;
         }
 
         .logo-footer img {
@@ -212,7 +212,7 @@
         .line {
             flex: 1;
             height: 1px;
-            background-color: #ff85c0;
+            background-color: #b29ce4;
             border: none;
             margin: 0 15px;
         }
@@ -242,7 +242,7 @@
             left: -250px;
             width: 250px;
             height: 100%;
-            background-color: #FF99CC;
+            background-color: #b29ce4;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -264,7 +264,7 @@
         }
 
         .nav-links a:hover {
-            color: #ff85c0;
+            color: #9c84d2;
             background-color: white;
             transform: translateX(7px);
         }
@@ -368,6 +368,13 @@
                 width: 70px;
                 height: auto;
                margin-left: 15px;
+            }
+
+            .category {
+                flex-direction: column;
+                width: 80%;
+                max-height: 400px;
+                min-height: 250px;
             }
         }
     </style>
