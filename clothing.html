@@ -57,7 +57,7 @@
         }
 
         .section {
-            padding: 20px;
+            padding: 0px;
         }
 
         .section h3 {
@@ -210,19 +210,19 @@
             text-align: center;
             align-items: center;
             justify-content: space-evenly;
+            margin: 0 40px;
         }
 
         .Clothes-h2 {
-            flex: 10%;
-        font-size: 23px;
+            font-size: 23px;
         }
 
         .dropdown-button {
-            flex: 45%;
+            flex: 50%;
         }
 
         .sort-buttons {
-            flex: 45%;
+            flex: 75%;
         }
 
         .dropdown {
@@ -231,6 +231,7 @@
         }
 
         .dropdown-button {
+            margin-left: 200px;
             background-color: #4CAF50;
             color: white;
             padding: 14px 20px;
@@ -275,14 +276,14 @@
             display: block;
             transform: scaleY(1);
         }
-        
+
         .sort-buttons {
             display: flex;
             gap: 10px;
             justify-content: center;
-            margin: 20px 0;
+            margin: 10px 0;
         }
-        
+
         .sort-button {
             background-color: #007bff;
             border: none;
@@ -290,22 +291,36 @@
             padding: 10px 20px;
             text-align: center;
             text-decoration: none;
-            display: inline-block;
+            display: block;
             font-size: 16px;
             margin: 4px 2px;
             cursor: pointer;
             border-radius: 5px;
             transition: background-color 0.3s ease, transform 0.2s ease;
         }
-        
+
         .sort-button:hover {
             background-color: #0056b3;
         }
-        
+
         .sort-button:active {
             transform: scale(0.98);
         }
-        
+
+        .our-productsline {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .line {
+            flex: 1;
+            height: 1px;
+            background-color: #ff85c0;
+            border: none;
+            margin: 0 15px;
+        }
 
         @media (max-width: 1200px) {
             .social-icons {
@@ -332,23 +347,7 @@
         }
 
         @media (max-width: 768px) {
-
-            .dropdown-button{
-                padding: 10px 7px;
-                font-size: 14px;
-                
-            }
-
-            .sort-button {
-                position: relative;
-                right: -15px;
-                padding: 10px 4.3px;
-                text-align: center;
-                font-size: 14px;
-                margin: 4px 0px;
-            }
-
-            .Clothes-h2{
+            .Clothes-h2 {
                 position: relative;
                 right: 12px;
                 top: -2px;
@@ -393,7 +392,7 @@
 
 <body>
     <header>
-        <h2>Clothing Section</h2>
+        <h1>Dazhir Store</h1>
         <img class="header-img" src="logo.png" alt="Dazhir Store Logo">
     </header>
     <nav class="the-nav">
@@ -413,9 +412,15 @@
             </div>
         </div>
     </nav>
+
+    <div class="our-productsline">
+        <hr data-aos="zoom-in" class="line">
+        <h2 data-aos="zoom-out" class="Our-products">Clothing Section</h2>
+        <hr data-aos="zoom-in" class="line">
+    </div class="line">
+
     <div class="section">
         <div class="all-filter-buttons">
-            <h3 class="Clothes-h2">Clothes</h3>
             <div class="dropdown">
                 <button class="dropdown-button" onclick="toggleDropdown()">Clothing Types</button>
                 <div class="dropdown-content" id="dropdown-content">
@@ -454,7 +459,7 @@
         document.addEventListener("DOMContentLoaded", function () {
             let itemsData = [];
             let currentType = 'all';  // Keep track of the currently selected type
-        
+
             // Fetch items and store them in itemsData
             fetch('items.json')
                 .then(response => {
@@ -468,12 +473,12 @@
                     displayItems(itemsData, 'Clothes'); // Display all items initially
                 })
                 .catch(error => console.error('Error loading JSON:', error));
-        
+
             // Toggle dropdown functionality
             function toggleDropdown() {
                 document.getElementById("dropdown-content").classList.toggle("show");
             }
-        
+
             // Close dropdown if clicked outside
             window.onclick = function (event) {
                 if (!event.target.matches('.dropdown-button')) {
@@ -486,7 +491,7 @@
                     }
                 }
             }
-        
+
             // Sort and display items based on the selected option
             function sortItems(order) {
                 const filteredItems = filterItemsByType(currentType); // Filter items first
@@ -502,38 +507,38 @@
                 });
                 displayItems(sortedItems, document.querySelector('.section h3').textContent);
             }
-        
+
             // Filter and display items based on selected type
             function displayItems(items, heading) {
                 const itemsContainer = document.querySelector('.items');
                 itemsContainer.innerHTML = ''; // Clear previous items
-        
+
                 items.forEach(item => {
                     const itemDiv = document.createElement('div');
                     itemDiv.classList.add('item');
-        
+
                     const img = document.createElement('img');
                     img.src = item.image;
                     img.alt = item.alt;
-        
+
                     const size = document.createElement('h3');
                     size.textContent = `Size: ${item.size}`;
                     size.style.color = "black";
-        
+
                     const price = document.createElement('p');
                     price.textContent = `Price: ${item.price}`;
-        
+
                     itemDiv.appendChild(img);
                     itemDiv.appendChild(size);
                     itemDiv.appendChild(price);
-        
+
                     itemsContainer.appendChild(itemDiv);
                 });
-        
+
                 // Update the heading
                 document.querySelector('.section h3').textContent = heading;
             }
-        
+
             // Filter items based on type
             function filterItemsByType(type) {
                 if (type === 'all') {
@@ -542,22 +547,22 @@
                     return itemsData.filter(item => item.itemType === type);
                 }
             }
-        
+
             // Event delegation to handle dropdown clicks
             document.getElementById('dropdown-content').addEventListener('click', function (event) {
                 const target = event.target;
                 if (target.matches('a[data-item-type]')) {
                     const type = target.getAttribute('data-item-type');
                     currentType = type; // Update the current type
-        
+
                     const filteredItems = filterItemsByType(type);
                     displayItems(filteredItems, type === 'all' ? 'Clothes' : type.charAt(0).toUpperCase() + type.slice(1));
-        
+
                     // Hide dropdown after selection
                     document.getElementById('dropdown-content').classList.remove('show');
                 }
             });
-        
+
             // Toggle menu functionality
             function toggleMenu() {
                 const navLinks = document.getElementById('navLinks');
@@ -565,10 +570,10 @@
                 const menuIcon = document.querySelector('.menu-icon');
                 menuIcon.classList.toggle('active');
             }
-        
+
             document.querySelector('.menu-icon').addEventListener('click', toggleMenu);
             document.querySelector('.dropdown-button').addEventListener('click', toggleDropdown); // Ensure dropdown button is wired up
-        
+
             // Attach sort button handlers
             document.querySelectorAll('.sort-button').forEach(button => {
                 button.addEventListener('click', function () {
@@ -577,7 +582,7 @@
                 });
             });
         });
-        
+
     </script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
