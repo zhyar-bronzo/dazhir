@@ -572,6 +572,16 @@
                         itemDiv.appendChild(size);
                         itemDiv.appendChild(price);
 
+                        itemDiv.addEventListener('mouseover', function() {
+                            size.style.color = "white"; // Color on hover
+                            price.style.color = "white"; 
+                        });
+                        
+                        itemDiv.addEventListener('mouseout', function() {
+                            size.style.color = "black"; // Reset color
+                            price.style.color = "black"; 
+                        });
+
                         itemsContainer.appendChild(itemDiv);
                     });
 

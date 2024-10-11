@@ -574,9 +574,9 @@
                         desc.textContent = item.desc;
                         desc.style.color = "black";
 
-
                         const price = document.createElement('p');
                         price.textContent = `Price: ${item.price}`;
+                        price.style.color = "black";
 
                         itemDiv.appendChild(img);
                         itemDiv.appendChild(desc);
@@ -585,13 +585,15 @@
 
                         itemsContainer.appendChild(itemDiv);
 
-                        console.log(item.desc);
+                        itemDiv.addEventListener('mouseover', function () {
+                            desc.style.color = "white"; // Color on hover
+                            price.style.color = "white";
+                        });
 
-                        // Log itemDiv to verify it's the right container
-                        console.log(itemDiv);
-
-                        // Append the description to itemDiv
-                        itemDiv.appendChild(desc);
+                        itemDiv.addEventListener('mouseout', function () {
+                            desc.style.color = "black"; // Reset color
+                            price.style.color = "black";
+                        });
                     });
                 }
             }
