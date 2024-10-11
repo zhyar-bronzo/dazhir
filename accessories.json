@@ -4,13 +4,20 @@
         "image": "necklace1.jpg",
         "size": "",
         "price": "10 IQD",
-        "itemType" : "Necklace"
+        "itemType": "Necklace"
     },
     {
-        "desc": "ملوانکەی جلی کوردی",
+        "desc": "(شین)ملوانکەی جلی کوردی",
         "image": "necklace2.jpg",
         "size": "",
         "price": "8 IQD",
-        "itemType" : "Necklace"
+        "itemType": "Necklace"
+    },
+    {
+        "desc": "(سەوز)ملوانکەی جلی کوردی",
+        "image": "necklace3.jpg",
+        "size": "",
+        "price": "8 IQD",
+        "itemType": "Necklace"
     }
 ]
