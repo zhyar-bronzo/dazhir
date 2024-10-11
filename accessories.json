@@ -1,66 +1,9 @@
 [
     {
-        "image": "1.jpg",
-        "size": "M",
-        "price": "15 IQD",
-        "instagram" : "https://www.instagram.com",
-        "tiktoke" : "https://www.tiktok.com",
-        "itemType" : "pants"
-    },
-    {
-        "image": "1.jpg",
-        "size": "M",
-        "price": "18 IQD",
-        "instagram" : "https://www.instagram.com",
-        "tiktoke" : "https://www.tiktok.com",
-        "itemType" : "pants"
-    },
-    {
-        "image": "1.jpg",
-        "size": "M",
-        "price": "8 IQD",
-        "instagram" : "https://www.instagram.com",
-        "tiktoke" : "https://www.tiktok.com",
-        "itemType" : "pants"
-    },
-    {
-        "image": "1.jpg",
-        "size": "m",
-        "price": "12 IQD",
-        "instagram" : "https://www.instagram.com",
-        "tiktoke" : "https://www.tiktok.com",
-        "itemType" : "jeans"
-    },
-    {
-        "image": "1.jpg",
-        "size": "shirts",
-        "price": "15 IQD",
-        "instagram" : "https://www.instagram.com",
-        "tiktoke" : "https://www.tiktok.com",
-        "itemType" : "shirts"
-    },
-    {
-        "image": "1.jpg",
-        "size": "skirt",
-        "price": "18 IQD",
-        "instagram" : "https://www.instagram.com",
-        "tiktoke" : "https://www.tiktok.com",
-         "itemType" : "skirt"
-    },
-    {
-        "image": "1.jpg",
-        "size": "dress",
-        "price": "22 IQD",
-        "instagram" : "https://www.instagram.com",
-        "tiktoke" : "https://www.tiktok.com",
-         "itemType" : "dress"
-    },
-    {
-        "image": "1.jpg",
-        "size": "coat",
-        "price": "62 IQD",
-        "instagram" : "https://www.instagram.com",
-        "tiktoke" : "https://www.tiktok.com",
-        "itemType" : "coat"
+        "desc": "سێتی ملوانکەو گوارە",
+        "image": "necklace1.jpg",
+        "size": "",
+        "price": "10 IQD",
+        "itemType" : "Necklace"
     }
 ]

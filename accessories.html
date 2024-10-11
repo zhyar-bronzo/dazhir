@@ -452,7 +452,7 @@
                 <button class="dropdown-button" onclick="toggleDropdown()">Accessories Types</button>
                 <div class="dropdown-content" id="dropdown-content">
                     <a href="#" data-item-type="all">All</a>
-                    <a href="#" data-item-type="coat">Necklace</a>
+                    <a href="#" data-item-type="Necklace">Necklace</a>
                     <a href="#" data-item-type="Rings">Rings</a>
                     <a href="#" data-item-type="Braclet">Braclet</a>
                     <a href="#" data-item-type="Earings">Earings</a>
@@ -481,7 +481,8 @@
         <p class="copy-rights">&copy; 2024 Dazhir Store All rights reserved</p>
         <div class="social-icons">
             <p class="footer-follow"><b>Follow us on</b></p>
-            <a href="https://www.instagram.com/dazhir.store/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.instagram.com/dazhir.store/" target="_blank" aria-label="Instagram"><i
+                    class="fab fa-instagram"></i></a>
             <a href="#" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
         </div>
     </footer>
@@ -492,7 +493,7 @@
             let currentType = 'all';  // Keep track of the currently selected type
 
             // Fetch items and store them in itemsData
-            fetch('items.json')
+            fetch('accessories.json')
                 .then(response => {
                     if (!response.ok) {
                         throw new Error(`Network response was not ok: ${response.statusText}`);
@@ -500,8 +501,9 @@
                     return response.json();
                 })
                 .then(data => {
+                    console.log('Fetched data:', data); // Log the fetched data
                     itemsData = data;
-                    displayItems(itemsData, 'Accessories'); // Display all items initially
+                    displayItems(itemsData); // Display all items initially
                 })
                 .catch(error => console.error('Error loading JSON:', error));
 
@@ -540,7 +542,7 @@
             }
 
             // Filter and display items based on selected type
-            function displayItems(items, heading) {
+            function displayItems(items) {
                 const itemsContainer = document.querySelector('.items');
                 itemsContainer.innerHTML = ''; // Clear previous items
                 const itemsFound = items.length;
@@ -563,25 +565,35 @@
 
                         const img = document.createElement('img');
                         img.src = item.image;
-                        img.alt = item.alt;
 
-                        const size = document.createElement('h3');
-                        size.textContent = `Size: ${item.size}`;
-                        size.style.color = "black";
+                        //const size = document.createElement('h3');
+                        //size.textContent = `Size: ${item.size}`;
+                        //size.style.color = "black";
+
+                        const desc = document.createElement('h3');
+                        desc.textContent = item.desc;
+                        desc.style.color = "black";
+
 
                         const price = document.createElement('p');
                         price.textContent = `Price: ${item.price}`;
 
                         itemDiv.appendChild(img);
-                        itemDiv.appendChild(size);
+                        itemDiv.appendChild(desc);
+                        //itemDiv.appendChild(size);
                         itemDiv.appendChild(price);
 
                         itemsContainer.appendChild(itemDiv);
+
+                        console.log(item.desc);
+
+                        // Log itemDiv to verify it's the right container
+                        console.log(itemDiv);
+
+                        // Append the description to itemDiv
+                        itemDiv.appendChild(desc);
                     });
                 }
-
-                // Update the heading
-                document.querySelector('.section h3').textContent = heading;
             }
 
             // Filter items based on type
