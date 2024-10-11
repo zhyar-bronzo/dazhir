@@ -452,7 +452,7 @@
                 <button class="dropdown-button" onclick="toggleDropdown()">Accessories Types</button>
                 <div class="dropdown-content" id="dropdown-content">
                     <a href="#" data-item-type="all">All</a>
-                    <a href="#" data-item-type="Necklace">Necklace</a>
+                    <a href="#" data-item-type="coat">Necklace</a>
                     <a href="#" data-item-type="Rings">Rings</a>
                     <a href="#" data-item-type="Braclet">Braclet</a>
                     <a href="#" data-item-type="Earings">Earings</a>
@@ -573,7 +573,7 @@
                         price.textContent = `Price: ${item.price}`;
 
                         itemDiv.appendChild(img);
-                        //itemDiv.appendChild(size);
+                        itemDiv.appendChild(size);
                         itemDiv.appendChild(price);
 
                         itemsContainer.appendChild(itemDiv);
