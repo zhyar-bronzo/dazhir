@@ -497,7 +497,7 @@
                 })
                 .then(data => {
                     itemsData = data;
-                    displayItems(itemsData, 'Clothes'); // Display all items initially
+                    displayItems(itemsData); // Display all items initially
                 })
                 .catch(error => console.error('Error loading JSON:', error));
 
@@ -584,9 +584,6 @@
 
                         itemsContainer.appendChild(itemDiv);
                     });
-
-                    // Update the heading
-                    document.querySelector('.section h3').textContent = heading;
                 }
             }
 
