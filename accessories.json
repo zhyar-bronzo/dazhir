@@ -1,65 +1,140 @@
 [
     {
-        "desc": "سێتی ملوانکەو گوارە",
-        "image": "necklace1.jpg",
-        "size": "",
-        "price": "10,000 IQD",
-        "itemType": "Necklace"
-    },
-    {
-        "desc": "(شین)ملوانکەی جلی کوردی",
-        "image": "necklace2.jpg",
-        "size": "",
-        "price": "8,000 IQD",
-        "itemType": "Necklace"
-    },
-    {
-        "desc": "(سەوز)ملوانکەی جلی کوردی",
-        "image": "necklace3.jpg",
-        "size": "",
-        "price": "8,000 IQD",
-        "itemType": "Necklace"
-    },
-    {
-        "desc": "(ڕەش) سێتی سەعات 5 پارچە",
-        "image": "watch2.jpg",
-        "size": "",
-        "price": "25,000 IQD",
-        "itemType": "Watches"
-    },
-    {
-        "desc": "(شین) سێتی سەعات 5 پارچە",
-        "image": "watch1.jpg",
-        "size": "",
-        "price": "25,000 IQD",
-        "itemType": "Watches"
-    },
-    {
-        "desc": "مستیلە",
-        "image": "ring1.jpg",
+        "desc": "سێتی دەسبەندی هەشت پارچە",
+        "image": "photo_2024-11-27_21-11-03.jpg",
         "size": "",
         "price": "5,000 IQD",
+        "itemType": "Sets"
+    },
+    {
+        "desc": "سێتی ملوانکەی پەپولە",
+        "image": "photo_2024-11-27_21-11-13.jpg",
+        "size": "",
+        "price": "3,000 IQD",
+        "itemType": "Sets"
+    },
+    {
+        "desc": "مستیلەی پەپولە",
+        "image": "photo_2024-11-27_21-11-20.jpg",
+        "size": "",
+        "price": "2,000 IQD",
         "itemType": "Rings"
     },
     {
-        "desc": "مستیلە",
-        "image": "ring2.jpg",
+        "desc": "سێتی پێنج ملوانکە",
+        "image": "photo_2024-11-27_21-11-28.jpg",
         "size": "",
-        "price": "5,000 IQD",
-        "itemType": "Rings"
+        "price": "4,000 IQD",
+        "itemType": "Sets"
     },
     {
-        "desc": "(گۆلد) ملوانکەی پەپولەی",
-        "image": "necklace5.jpg",
+        "desc": "ملوانکەی ڕێیزن",
+        "image": "photo_2024-11-27_21-11-31.jpg",
+        "size": "",
+        "price": "2,000 IQD",
+        "itemType": "Necklace"
+    },
+    {
+        "desc": "ملوانکەی دوو پارچەی پەپولە",
+        "image": "photo_2024-11-27_21-13-05.jpg",
+        "size": "",
+        "price": "4,000 IQD",
+        "itemType": "Necklace"
+    },
+    {
+        "desc": "سێتی سەعاتو دەسبەندی پشیلە",
+        "image": "photo_2024-11-27_21-13-08.jpg",
+        "size": "",
+        "price": "5,000 IQD",
+        "itemType": "Watches"
+    },
+    {
+        "desc": "سێتی ملوانکەی چوار پارچەی پەپولە",
+        "image": "photo_2024-11-27_21-13-10.jpg",
+        "size": "",
+        "price": "4,000 IQD",
+        "itemType": "Sets"
+    },
+    {
+        "desc": "سەعاتو دەسبەندی پەپولە",
+        "image": "photo_2024-11-27_21-13-12.jpg",
+        "size": "",
+        "price": "7,500 IQD",
+        "itemType": "Watches"
+    },
+    {
+        "desc": "سێتی سەعاتو دەسبەندی پێنج پارچە",
+        "image": "photo_2024-11-27_21-13-14.jpg",
+        "size": "",
+        "price": "6,000 IQD",
+        "itemType": "Watches"
+    },
+    {
+        "desc": "سێتی سێ ملوانکەی دڵ",
+        "image": "photo_2024-11-27_21-13-16.jpg",
+        "size": "",
+        "price": "5,500 IQD",
+        "itemType": "Sets"
+    },
+    {
+        "desc": "سێتی ملوانکەی موگناتیسی پەپولە",
+        "image": "photo_2024-11-27_21-13-18.jpg",
         "size": "",
         "price": "5,000 IQD",
         "itemType": "Necklace"
     },
     {
-        "desc": "ملوانکەی پەپولەی (زیو)",
-        "image": "necklace4.jpg",
+        "desc": "ملوانکەی مانگ و ئەستێرە",
+        "image": "photo_2024-11-27_21-13-20.jpg",
         "size": "",
-        "price": "5,000 IQD",
+        "price": "4,000 IQD",
         "itemType": "Necklace"
+    },
+    {
+        "desc": "ملوانکەی مانگ و ئەستێرە",
+        "image": "photo_2024-11-27_21-13-24.jpg",
+        "size": "",
+        "price": "2,500 IQD",
+        "itemType": "Necklace"
+    }
+    ,
+    {
+        "desc": "ملوانکەی دوو پارچەی گێلاس و دڵ",
+        "image": "photo_2024-11-27_21-13-25.jpg",
+        "size": "",
+        "price": "3,500 IQD",
+        "itemType": "Necklace"
+    }
+    ,
+    {
+        "desc": "گوارەی شەش پارچەی پەپولە",
+        "image": "1.jpg",
+        "size": "",
+        "price": "4,000 IQD",
+        "itemType": "Earings"
+    }
+    ,
+    {
+        "desc": "دەسبەندی پشیلە",
+        "image": "2.jpg",
+        "size": "",
+        "price": "3,500 IQD",
+        "itemType": "Braclet"
+    }
+    ,
+    {
+        "desc":"سێتی ملوانکەی موگناتیسی",
+        "image": "3.jpg",
+        "size": "",
+        "price": "4,500 IQD",
+        "itemType": "Necklace"
+    }
+    ,
+    {
+        "desc": "مەدالیای پشیلە",
+        "image": "4.jpg",
+        "size": "",
+        "price": "3,000 IQD",
+        "itemType": "keychains"
     }
 ]

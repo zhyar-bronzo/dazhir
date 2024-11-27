@@ -1,0 +1,457 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dazhir Store Delivery Prices</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #b29ce4;
+            color: white;
+            padding: 2px;
+            text-align: center;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            display: inline-block;
+            margin-top: 14px;
+        }
+
+        .header-img {
+            position: absolute;
+            top: 23px;
+            right: 20px;
+            width: 80px;
+            height: auto;
+            transition: width 0.3s ease;
+        }
+
+        nav {
+            text-align: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: 0.15s;
+            display: block;
+            padding: 10px;
+        }
+
+        nav a:hover {
+            color: #9c84d2;
+            transform: translateY(2px);
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: -115px;
+        }
+
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #9c84d2;
+        }
+
+        .logo-footer img {
+            width: 100px;
+            height: auto;
+            margin-left: -115px;
+        }
+
+        .footer-follow {
+            margin-right: 7px;
+        }
+
+        /* Hamburger Menu */
+        .menu-icon {
+            cursor: pointer;
+            padding: 10px;
+            z-index: 12000;
+            position: fixed;
+            top: 11px;
+            left: 20px;
+        }
+
+        .menu-icon div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+
+        .nav-links {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: #b29ce4;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: left 0.4s ease;
+            z-index: 1500;
+        }
+
+        .nav-links a {
+            margin-top: 20px;
+            transition: 0.4s ease;
+            width: 200px;
+            font-size: 19px;
+        }
+
+        .nav-links a:hover {
+            color: #9c84d2;
+            background-color: white;
+            transform: translateX(7px);
+        }
+
+        .nav-links.active {
+            left: 0;
+        }
+
+        .menu-icon.active div:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .menu-icon.active div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-icon.active div:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        @media (max-width: 1200px) {
+            .social-icons {
+                margin-right: -60px;
+            }
+
+            .logo-footer img {
+                width: 90px;
+                height: auto;
+                margin-left: 2px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .social-icons {
+                margin-right: -20px;
+            }
+
+            .logo-footer img {
+                width: 90px;
+                height: auto;
+                margin-left: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .header-img {
+                width: 60px;
+                right: 10px;
+                top: 27px;
+            }
+
+            .social-icons {
+                margin-right: 15px;
+            }
+
+            .social-icons a {
+                margin: 0 3.5px;
+                font-size: 17px;
+            }
+
+            .copy-rights {
+                font-size: 14px;
+                width: 140px;
+                margin-left: 25px;
+            }
+
+            .footer-follow {
+                font-size: 14px;
+                width: 50px;
+                margin: 2px;
+            }
+
+            .logo-footer img {
+                width: 70px;
+                height: auto;
+                margin-left: 15px;
+            }
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #e2e6ea;
+        }
+
+        caption {
+            padding: 10px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .all-tables {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .Delivery-note {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-gray {
+            color: #666;
+            font-size: 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        /* About Us Section */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .rounded-lg {
+            border-radius: 8px;
+        }
+
+        .shadow-lg {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-gray-dark {
+            color: #444;
+            font-size: 20px;
+        }
+
+        /* Social Media */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: #666;
+            font-size: 25px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #000;
+        }
+
+        .text-blue {
+            font-size: 23px;
+        }
+
+        .imgg {
+            padding-left: 20px;
+        }
+
+        .ppp {
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>About us</h1>
+        <img class="header-img" src="logo.png" alt="Dazhir Store Logo">
+    </header>
+    <nav class="the-nav">
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <div class="moving-a">
+                <a href="index.html">Home</a>
+                <a href="clothing.html">Clothings</a>
+                <a href="accessories.html">Accessories</a>
+                <a href="delevery.html">Delivery cost</a>
+                <a href="about-us.html">About Us</a>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="container">
+            <section class="text-center">
+                <h2>About Us</h2>
+                <p class="text-gray">
+                    Welcome to <strong>Dazhir Store</strong>, your go-to online store for stylish accessories and trendy
+                    clothing. We are committed to providing quality, affordability, and the latest in fashion trends.
+                </p>
+            </section>
+
+            <section class="grid">
+                <!-- Image -->
+                <div>
+                    <img src="aaa.avif" width="570" height="350" alt="Fashion and Accessories"
+                        class="rounded-lg shadow-lg imgg" />
+                </div>
+
+                <!-- Text -->
+                <div>
+                    <h2>Who We Are</h2>
+                    <p class="text-gray-dark">
+                        At <Strong>Dazhir Store</Strong>, we believe that fashion is an expression of personality and
+                        confidence. From chic
+                        accessories to trendy clothing, we strive to offer products that empower you to look and feel
+                        your
+                        best.
+                    </p>
+                    <p class="text-gray-dark">
+                        Our mission is to make shopping easy, accessible, and enjoyable, offering a seamless online
+                        experience with fast delivery and exceptional customer service.
+                    </p>
+                    <p class="ppp">
+                        Need assistance? Email us at:
+                        <a style="color: black;" href="mailto:dazhirStoreInfo@gmail.com" class="text-blue">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </p>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <div class="logo-footer">
+            <img src="logo.png" alt="Dazhir Store Logo">
+        </div>
+        <p class="copy-rights">&copy; 2024 Dazhir Store All rights reserved</p>
+        <div class="social-icons">
+            <p class="footer-follow"><b>Follow us on</b></p>
+            <a href="https://www.instagram.com/dazhir.store/" target="_blank" aria-label="Instagram"><i
+                    class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@dazhir.store?_t=8qSIRqVjj6Y" target="_blank" aria-label="TikTok"><i
+                    class="fab fa-tiktok"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Toggle dropdown functionality
+            function toggleDropdown() {
+                document.getElementById("dropdown-content").classList.toggle("show");
+            }
+
+            // Close dropdown if clicked outside
+            window.onclick = function (event) {
+                if (!event.target.matches('.dropdown-button')) {
+                    let dropdowns = document.getElementsByClassName("dropdown-content");
+                    for (let i = 0; i < dropdowns.length; i++) {
+                        let openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains('show')) {
+                            openDropdown.classList.remove('show');
+                        }
+                    }
+                }
+            }
+            // Toggle menu functionality
+            function toggleMenu() {
+                const navLinks = document.getElementById('navLinks');
+                navLinks.classList.toggle('active');
+                const menuIcon = document.querySelector('.menu-icon');
+                menuIcon.classList.toggle('active');
+            }
+
+            document.querySelector('.menu-icon').addEventListener('click', toggleMenu);
+            document.querySelector('.dropdown-button').addEventListener('click', toggleDropdown); // Ensure dropdown button is wired up
+        });
+
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
