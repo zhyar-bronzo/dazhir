@@ -23,10 +23,12 @@
             z-index: 1000;
             display: flex;
             justify-content: center;
+            margin-bottom: 30px;
         }
 
         header h1 {
             display: inline-block;
+            margin-top: 14px;
         }
 
         .header-img {
@@ -161,80 +163,227 @@
             transform: rotate(45deg) translate(-5px, -6px);
         }
 
-        /* Ensure the content container is flexible */
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-            margin: 0 auto;
+        @media (max-width: 1200px) {
+            .social-icons {
+                margin-right: -60px;
+            }
+
+            .logo-footer img {
+                width: 90px;
+                height: auto;
+                margin-left: 2px;
+            }
+
+            .text-center {
+                color: yellow;
+            }
         }
 
-        /* Main content */
-        section.text-center {
-            padding: 20px;
+        @media (max-width: 1024px) {
+            .social-icons {
+                margin-right: -20px;
+            }
+
+            .logo-footer img {
+                width: 90px;
+                height: auto;
+                margin-left: 10px;
+            }
+
+            .text-center {
+                font-size: 18px;
+                max-width: 400px;
+                margin-left: 50%;
+                transform: translateX(-50%);
+                padding: 0px -20px;
+            }
+
+            .imgg {
+                width: 400px;
+                height: 250px;
+                margin-left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .abc {
+                font-size: 18px;
+                max-width: 500px;
+                text-align: center;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .header-img {
+                width: 60px;
+                right: 10px;
+                top: 27px;
+            }
+
+            .social-icons {
+                margin-right: 15px;
+            }
+
+            .social-icons a {
+                margin: 0 3.5px;
+                font-size: 17px;
+            }
+
+            .copy-rights {
+                font-size: 14px;
+                width: 140px;
+                margin-left: 25px;
+            }
+
+            .footer-follow {
+                font-size: 14px;
+                width: 50px;
+                margin: 2px;
+            }
+
+            .logo-footer img {
+                width: 70px;
+                height: auto;
+                margin-left: 15px;
+            }
+
+            .text-center {
+                font-size: 18px;
+                max-width: 400px;
+                margin-left: 50%;
+                transform: translateX(-50%);
+                padding: 0px -20px;
+            }
+
+            .imgg {
+                width: 400px;
+                height: 250px;
+                margin-left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .abc {
+                font-size: 18px;
+                max-width: 500px;
+                text-align: center;
+                padding: 10px;
+            }
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th,
+        td {
+            padding: 15px;
             text-align: center;
         }
 
-        /* Grid for the 'Who We Are' and image section */
-        .grid {
-            display: flex;
-            flex-direction: column; /* Stack elements vertically by default */
-            gap: 20px;
-            justify-content: center;
-            align-items: center;
+        th {
+            background-color: #007bff;
+            color: white;
         }
 
-        .grid img {
-            max-width: 100%;
-            height: auto;
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #e2e6ea;
+        }
+
+        caption {
+            padding: 10px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .all-tables {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .Delivery-note {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-gray {
+            color: #666;
+            font-size: 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        /* About Us Section */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .rounded-lg {
             border-radius: 8px;
+        }
+
+        .shadow-lg {
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        /* Media queries for responsiveness */
-        @media (min-width: 768px) {
-            .grid {
-                flex-direction: row; /* Side-by-side layout on wider screens */
-            }
-
-            .grid div {
-                width: 50%; /* Adjust width for side-by-side layout */
-            }
-
-            .container {
-                padding: 40px;
-            }
+        .text-gray-dark {
+            color: #444;
+            font-size: 20px;
         }
 
-        @media (min-width: 1024px) {
-            .container {
-                max-width: 1200px;
-            }
+        /* Social Media */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
 
-        /* Mobile view adjustments */
-        @media (max-width: 768px) {
-            .grid {
-                flex-direction: column; /* Stack vertically on small screens */
-                width: 100%;
-            }
+        .social-links a {
+            color: #666;
+            font-size: 25px;
+            transition: color 0.3s ease;
+        }
 
-            .grid div {
-                width: 100%; /* Take full width on small screens */
-            }
+        .social-links a:hover {
+            color: #000;
+        }
 
-            .text-center h2 {
-                font-size: 1.5em;
-            }
+        .text-blue {
+            font-size: 23px;
+        }
 
-            .text-center p {
-                font-size: 1em;
-            }
+        .imgg {
+            padding-left: 20px;
+        }
 
-            .ppp {
-                font-size: 16px;
-            }
+        .ppp {
+            font-size: 18px;
         }
     </style>
 </head>
@@ -278,7 +427,7 @@
                 </div>
 
                 <!-- Text -->
-                <div>
+                <div class="abc">
                     <h2>Who We Are</h2>
                     <p class="text-gray-dark">
                         At <Strong>Dazhir Store</Strong>, we believe that fashion is an expression of personality and
@@ -310,16 +459,47 @@
             <p class="footer-follow"><b>Follow us on</b></p>
             <a href="https://www.instagram.com/dazhir.store/" target="_blank" aria-label="Instagram"><i
                     class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@dazhir.store?_t=8qSIRqVjj6Y" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.tiktok.com/@dazhir.store?_t=8qSIRqVjj6Y" target="_blank" aria-label="TikTok"><i
+                    class="fab fa-tiktok"></i></a>
         </div>
     </footer>
 
     <script>
-        function toggleMenu() {
-            var navLinks = document.getElementById("navLinks");
-            var menuIcon = document.querySelector(".menu-icon");
-            navLinks.classList.toggle("active");
-            menuIcon.classList.toggle("active");
-        }
+        document.addEventListener("DOMContentLoaded", function () {
+            // Toggle dropdown functionality
+            function toggleDropdown() {
+                document.getElementById("dropdown-content").classList.toggle("show");
+            }
+
+            // Close dropdown if clicked outside
+            window.onclick = function (event) {
+                if (!event.target.matches('.dropdown-button')) {
+                    let dropdowns = document.getElementsByClassName("dropdown-content");
+                    for (let i = 0; i < dropdowns.length; i++) {
+                        let openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains('show')) {
+                            openDropdown.classList.remove('show');
+                        }
+                    }
+                }
+            }
+            // Toggle menu functionality
+            function toggleMenu() {
+                const navLinks = document.getElementById('navLinks');
+                navLinks.classList.toggle('active');
+                const menuIcon = document.querySelector('.menu-icon');
+                menuIcon.classList.toggle('active');
+            }
+
+            document.querySelector('.menu-icon').addEventListener('click', toggleMenu);
+            document.querySelector('.dropdown-button').addEventListener('click', toggleDropdown); // Ensure dropdown button is wired up
+        });
+
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
     </script>
 </body>
+
+</html>
